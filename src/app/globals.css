@@ -2,3 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 🌐 Fuente base: Archivo (según Figma) */
+body {
+  @apply font-archivo text-text-primary bg-background-primary;
+}
+
+/* Header logo específico */
+.logo-text {
+  @apply font-logo text-xl font-bold text-text-primary;
+}
+
+/* Titulares */
+h1 {
+  @apply text-h1 font-archivo;
+}
+
+h2 {
+  @apply text-h2 font-archivo;
+}
+
+/* Botones primarios */
+.btn-primary {
+  @apply bg-cta-bg text-cta-text text-button rounded-lg px-6 py-3 text-center;
+}
