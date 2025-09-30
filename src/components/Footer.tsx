@@ -4,12 +4,12 @@ import { LogoDigital } from "./icons/LogoDigital";
 
 export const Footer = () => {
   return (
-    <footer className="w-full h-[172.09px] bg-[#404040] border-b border-[#8F8F8F] px-6 md:px-20 flex items-center justify-center">
+    <footer className="w-full min-w-full bg-[#404040] flex items-center justify-center h-[172px] px-6">
       <a href="/" aria-label="Go to Home" className="flex items-center gap-3">
         <LogoApplyDigital size={52} />
         <div className="flex flex-col leading-none">
           <LogoApply size={101} />
-          <LogoDigital size={101} />
+          <LogoDigital size={101} className="mt-1"/>
         </div>
       </a>
     </footer>

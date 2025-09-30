@@ -20,12 +20,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} flex flex-col min-h-screen`}>
         <Header />
-        {/* main ocupa el espacio restante y centra el contenido */}
-        <main className="flex-1 flex items-center justify-center">
-          {children}
-        </main>
+        {/* main ahora es un contenedor normal, sin centrado forzado */}
+        <main className="flex-1 w-full">{children}</main>
         <Footer />
       </body>
     </html>
   );
 }
+
