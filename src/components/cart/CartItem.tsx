@@ -18,7 +18,7 @@ export const CartItem = ({ genre, name, description, price, image }: CartItemPro
       {/* Top: Image + Close */}
       <div className="w-[295px] h-[136px] flex gap-3">
         {/* Imagen */}
-        <div className="w-[259px] h-[136px] bg-white p-2 flex items-center justify-center">
+        <div className="w-[259px] h-[136px] bg-white flex items-center justify-center md:w-[256px] md:h-[156px]">
           <Image
             src={image}
             alt={name}
@@ -29,10 +29,10 @@ export const CartItem = ({ genre, name, description, price, image }: CartItemPro
         </div>
 
         {/* Botón eliminar */}
-        <button
-          className="w-6 h-6 p-1 flex items-center justify-center"
-          aria-label="Remove item"
-        >
+          <button
+            className="absolute top-4 right-4 w-6 h-6 p-1 flex items-center justify-center z-10"
+            aria-label="Remove item"
+          >
           <CloseIcon size={12} />
         </button>
       </div>

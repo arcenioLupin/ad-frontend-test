@@ -1,6 +1,7 @@
 // app/cart/page.tsx
 
 import { CartItem } from "@/components/cart/CartItem";
+import { OrderSummary } from "@/components/cart/OrderSummary";
 import ArrowLeftIcon from "@/components/icons/ArrowLeftIcon";
 import { allGames } from "@/utils/endpoint";
 
@@ -60,9 +61,7 @@ export default function CartPage() {
 
         {/* Columna derecha: resumen */}
         <aside className="md:col-span-1">
-        <div className="border border-dashed border-gray-400 rounded-lg p-6 text-center text-gray-500">
-            Order summary placeholder
-        </div>
+         <OrderSummary/>
         </aside>
     </div>
 </section>
