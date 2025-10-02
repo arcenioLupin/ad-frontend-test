@@ -1,8 +1,12 @@
+"use client";
+
+import { useCart } from "@/app/context/CartContext";
 import { RowItem } from "@/components/cart/RowItem";
-import { allGames } from "@/utils/endpoint";
 
 export const OrderSummary = () => {
-  const total = allGames.slice(0, 3).reduce((acc, g) => acc + g.price, 0);
+  const { items } = useCart();
+
+  const total = items.reduce((acc, g) => acc + g.price, 0);
 
   return (
     <div
@@ -36,7 +40,7 @@ export const OrderSummary = () => {
               md:text-[18px] md:leading-[24px]
             "
           >
-            {allGames.length} items
+            {items.length} {items.length === 1 ? "item" : "items"}
           </span>
         </div>
 
@@ -44,7 +48,7 @@ export const OrderSummary = () => {
         <div className="flex flex-col gap-5 md:gap-6 py-4 md:py-5">
           {/* Detail rows */}
           <div className="flex flex-col gap-2 md:gap-3">
-            {allGames.slice(0, 3).map((game) => (
+            {items.map((game) => (
               <RowItem key={game.id} name={game.name} price={game.price} />
             ))}
           </div>
@@ -60,7 +64,7 @@ export const OrderSummary = () => {
                 md:text-[18px] md:leading-[24px]
               "
             >
-              Total
+              Order Total
             </span>
             <span
               className="

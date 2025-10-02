@@ -1,12 +1,15 @@
-// components/cart/CartItem.tsx
+"use client";
+
 import { Game } from "@/utils/endpoint";
 import Image from "next/image";
 import CloseIcon from "../icons/CloseIcon";
-
+import { useCart } from "@/app/context/CartContext";
 
 interface CartItemProps extends Game {}
 
-export const CartItem = ({ genre, name, description, price, image }: CartItemProps) => {
+export const CartItem = ({ id, genre, name, description, price, image }: CartItemProps) => {
+  const { remove } = useCart();
+
   return (
     <div
       className="
@@ -29,10 +32,11 @@ export const CartItem = ({ genre, name, description, price, image }: CartItemPro
         </div>
 
         {/* Botón eliminar */}
-          <button
-            className="absolute top-4 right-4 w-6 h-6 p-1 flex items-center justify-center z-10"
-            aria-label="Remove item"
-          >
+        <button
+          onClick={() => remove(id)} // 👈 ahora elimina del carrito
+          className="absolute top-4 right-4 w-6 h-6 p-1 flex items-center justify-center z-10"
+          aria-label="Remove item"
+        >
           <CloseIcon size={12} />
         </button>
       </div>
