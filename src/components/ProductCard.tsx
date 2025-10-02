@@ -1,9 +1,11 @@
 "use client";
 
+import { useCart } from "@/app/context/CartContext";
 import { Game } from "@/utils/endpoint";
-import { useCart } from "@/hooks/useCart";
 
-export const ProductCard = ({ id, image, genre, name, price, description, isNew }: Game) => {
+
+export const ProductCard = (game: Game) => {
+  const { image, name, isNew, genre, price, id } = game;
   const { inCart, toggle } = useCart();
 
   return (
@@ -46,9 +48,7 @@ export const ProductCard = ({ id, image, genre, name, price, description, isNew 
 
         {/* Botón dinámico */}
         <button
-          onClick={() =>
-            toggle({ id, image, genre, name, price, description, isNew })
-          }
+          onClick={() => toggle(game)}
           className={`
             mt-auto h-[56px] border rounded-lg 
             px-6 py-4 flex items-center justify-center gap-2
